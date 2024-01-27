@@ -28,6 +28,15 @@ services:
     volumes:
       - ./db:/var/lib/mysql
 
+  node-js:
+    container_name: node-js
+    image: node:16.14.2-stretch
+    command: tail -f /dev/null
+    working_dir: /themes
+    volumes:
+      - ./wordpress/wp-content/themes/:/themes
+
 volumes:
   wordpress:
   db:
+  themes:
